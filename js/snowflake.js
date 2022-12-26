@@ -2,7 +2,7 @@ const body = document.querySelector("body");
 const MIN_ANIMATION_DURATION = 10;
 const MIN_SIZE = 5;
 const SNOWFLAKE_WIDTH = 8;
-const MAX_SNOWFLAKE_LEFT = window.screen.width - 2 * SNOWFLAKE_WIDTH;
+const MAX_SNOWFLAKE_LEFT = document.documentElement.getBoundingClientRect().width - 2 * SNOWFLAKE_WIDTH;
 
 function makeSnowflake() {
   const snowflake = document.createElement("div");
@@ -12,7 +12,7 @@ function makeSnowflake() {
   const size = Math.random() * 10 + MIN_SIZE;
 
   snowflake.classList.add("snowflake");
-  snowflake.style.left = `${Math.min(Math.random() * window.screen.width, MAX_SNOWFLAKE_LEFT)}px`;
+  snowflake.style.left = `${Math.min(Math.random() * document.documentElement.getBoundingClientRect().width, MAX_SNOWFLAKE_LEFT)}px`;
   snowflake.style.width = `${size}px`;
   snowflake.style.height = `${size}px`;
   snowflake.style.animationDelay = `${delay}s`;
