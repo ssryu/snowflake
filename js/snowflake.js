@@ -1,5 +1,7 @@
 const body = document.querySelector("body");
 const MIN_ANIMATION_DURATION = 10;
+const SNOWFLAKE_WIDTH = 8;
+const MAX_SNOWFLAKE_LEFT = window.screen.width - 2 * SNOWFLAKE_WIDTH;
 
 function makeSnowflake() {
   const snowflake = document.createElement("div");
@@ -8,7 +10,7 @@ function makeSnowflake() {
   const duration = Math.random() * 20 + MIN_ANIMATION_DURATION;
 
   snowflake.classList.add("snowflake");
-  snowflake.style.left = `${Math.random() * window.screen.width}px`;
+  snowflake.style.left = `${Math.min(Math.random() * window.screen.width, MAX_SNOWFLAKE_LEFT)}px`;
   snowflake.style.animationDelay = `${delay}s`;
   snowflake.style.opacity = initialOpacity;
   snowflake.style.animation = `fall ${duration}s linear`;
